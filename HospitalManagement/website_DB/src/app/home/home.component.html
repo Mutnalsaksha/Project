@@ -1,0 +1,268 @@
+<section class="home">
+    <div class="bg-text">
+        <div class="background-container">
+            <img src="../../assets/bg.png" alt="">
+            <div class="overlay">
+              <div class="text-container">
+                <h1 id="scrollingText">Your Text Here 1</h1>
+                <p id="description">Some additional information or description 1.</p>
+                <!-- <button (click)="onButtonClick()">Your Button</button> -->
+                <a class="btn btn-primary" routerLink="/contactus">Book Service</a>
+
+                <div class="contact-icons">
+                  <div>
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp</span>
+                  </div>
+                  <div>
+                    <i class="bi bi-phone"></i>
+                    <span>+1234567890</span>
+                  </div>
+                  <div>
+                    <i class="bi bi-envelope"></i>
+                    <span>example@example.com</span>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="scroll-dots">
+                <div class="dot" id="dot1"></div>
+                <div class="dot" id="dot2"></div>
+                <div class="dot" id="dot3"></div>
+              </div>
+
+            </div>
+        </div> 
+    </div>
+</section>
+
+
+
+<!-- offer section -->
+
+
+<section class="scroll-section">
+  <div class="box">
+    <div class="box-content">
+      <div class="image-container" style="background-image: url('../../assets/Nurse5.png');"></div>
+      <div class="info-container">
+        <h5>Nursing Assistance</h5>
+        <p>Essential care with a compassionate touch for optimal patient comfort.</p>
+        <div class="discount">
+          <span class="highlighted-discount">20% OFF</span>
+        </div>
+        <a class="btn btn-primary" routerLink="/contactus">Book Now</a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="box-content">
+      <div class="image-container" style="background-image: url('../../assets/Doc.png');"></div>
+      <div class="info-container">
+        <h5>Doctor Visit</h5>
+        <p>Personalized medical guidance and treatment plans for your health needs.</p>
+        <div class="discount">
+          <span class="highlighted-discount">20% OFF</span>
+        </div>
+        <a class="btn btn-primary" routerLink="/contactus">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Our Services -->
+
+<section class="services-section">
+  <div class="title">Our Services</div>
+  
+  <!-- Filter options -->
+  <!-- <div class="filter-options">
+    <div class="filter-option" data-filter="all" (click)="filterServices('all')">All</div>
+    <div class="filter-option" data-filter="doctor" (click)="filterServices('doctor')">Doctor Visit</div>
+    <div class="filter-option" data-filter="nurse" (click)="filterServices('nurse')">Nurse</div>
+    <div class="filter-option" data-filter="delivery" (click)="filterServices('delivery')">Delivery</div>
+    <div class="filter-option" data-filter="others" (click)="filterServices('others')">Others</div>
+  </div> -->
+
+  <div class="filter-options">
+    <div class="filter-option" [class.active]="activeFilter === 'all'" (click)="filterServices('all')">All</div>
+    <div class="filter-option" [class.active]="activeFilter === 'doctor'" (click)="filterServices('doctor')">Doctor Visit</div>
+    <div class="filter-option" [class.active]="activeFilter === 'nurse'" (click)="filterServices('nurse')">Nurse</div>
+    <div class="filter-option" [class.active]="activeFilter === 'delivery'" (click)="filterServices('delivery')">Delivery</div>
+    <div class="filter-option" [class.active]="activeFilter === 'others'" (click)="filterServices('others')">Others</div>
+  </div>
+  
+
+
+<!-- Service boxes -->
+<div class="service-boxes">
+  <!-- Example service box 1 -->
+  <div *ngFor="let service of filteredServices" class="service-box" [attr.data-category]="service.dataCategory">
+    <div class="card-container">
+      <div class="card" style="width: 18rem;">
+        <div class="card-img-container">
+          <div class="img-square">
+            <img [src]="service.imageUrl" class="card-img-top" alt="">
+          </div>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{service.title}}</h4>
+          <p class="card-text">Experience expert care with our skilled nursing services, where professionals provide dedicated support, personalized treatment, and ensuring your well-being in the comfort of your home.</p>
+          <a href="/contactus" class="btn btn-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</div>
+</section>
+
+
+
+
+<!-- About Us Starts here -->
+
+<!-- About Us section -->
+<section class="about-us-section">
+  <div class="container">
+    <div class="row">
+      <!-- Left side (image) -->
+      <div class="col-md-6">
+        <img src="assets/Aboutus.jpg" alt="Doctors Team Image" class="img-fluid">
+      </div>
+
+      <!-- Right side (text) -->
+      <div class="col-md-6">
+        <div class="about-us-content">
+          <h2>About Us</h2>
+          <p>
+            Welcome to DocCare, where healthcare meets convenience and compassion. At DocCare, our mission is to redefine the way you experience healthcare by bringing it directly to your doorstep. We prioritize your well-being, offering a range of personalized services, from doctor consultations to nursing assistance and medical equipment delivery. Our team of skilled professionals is committed to delivering excellence, leveraging cutting-edge technology to ensure a streamlined and efficient healthcare experience. With a patient-centric approach, we empower you to take control of your health, making informed decisions with the support of our expert team. Trust DocCare to be your dedicated partner on your journey to a healthier and happier life.
+          </p>
+          <!-- Add your "Read More" button here -->
+          <!-- <button class="btn btn-primary">Read More</button> -->
+          <button class="read-more-btn" (click)="navigateToAboutUs()">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Book Service Section -->
+<section class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Book a Service
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form action="">
+            <div>
+              <input type="text" class="form-control" placeholder="Your Name" />
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="Phone Number" />
+            </div>
+            <div>
+              <input type="email" class="form-control" placeholder="Your Email" />
+            </div>
+            <div>
+              <select class="form-control nice-select wide">
+                <option value="" disabled selected>
+                  Which Service are you looking for?
+                </option>
+                <option value="">
+                  Critical Care
+                </option>
+                <option value="">
+                  Nursing Assistance
+                </option>
+                <option value="">
+                  Lab Assistance
+                </option>
+                <option value="">
+                  Medicine Delivery
+                </option>
+
+                <option value="">
+                  Wound Care
+                </option>
+                <option value="">
+                  Medical Equipments
+                </option>
+                <option value="">
+                  Nutritionist
+                </option>
+                <option value="">
+                  Skilled Nursing
+                </option>
+                <option value="">
+                  Doctor Visit
+                </option>
+                <option value="">
+                  Physiotherapist
+                </option>
+                <option value="">
+                  Counceling
+                </option>
+              </select>
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="What can we help you with?" />
+            </div>
+            <!-- <div>
+              <input type="date" class="form-control">
+            </div> -->
+            <div class="btn_box">
+              <button>
+                Book Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
+        <div class="position-relative h-100">
+            <iframe class="position-absolute w-100 h-100" style="object-fit: cover;"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.449400544041!2d77.60781487368999!3d12.8787988169089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6bda3d013719%3A0xa97f4e02b8a49f54!2sEiTechOne!5e0!3m2!1sen!2sin!4v1702079543936!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>"
+            frameborder="0" allowfullscreen="" aria-hidden="false"
+            tabindex="0">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end book section -->
+
+
+
+<!-- client section -->
+
+<!-- testimonial.component.html -->
+
+<section class="testimonials-section">
+  <h2>Testimonials</h2>
+  
+  <div class="testimonial-container">
+      <div *ngFor="let testimonial of testimonials" class="testimonial-box" [class.hidden]="!testimonial.visible">
+          <img [src]="testimonial.image" [alt]="testimonial.alt" class="client-image">
+          <p class="client-review">{{ testimonial.review }}</p>
+      </div>
+  </div>
+</section>
+
+

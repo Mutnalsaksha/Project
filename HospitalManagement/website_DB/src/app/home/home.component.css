@@ -1,0 +1,459 @@
+.home img
+{
+    width: 100%;
+    height: 600px;
+    object-position: 100%;
+    object-fit: cover;
+
+}
+
+.btn
+{
+  color: #fff;
+  background-color: primary;
+  border: none;
+  cursor: pointer;
+  margin-left: 0px;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+/* .btn:hover
+{
+  background-color: red;
+} */
+
+/* Add these styles to your component's CSS file */
+
+.contact-icons {
+  margin-top: 20px;
+}
+
+.contact-icons div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-icons i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.contact-icons span {
+  font-size: 16px;
+}
+
+.background-container {
+    position: relative;
+    height: 600px; /* Adjust the height as needed */
+    /* background: url('../../assets/bg.png') center/cover; */
+    overflow: hidden; /* Ensure overflow is hidden to avoid scrolling */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%; /* Adjust the width of the overlay */
+    height: 100%;
+    margin-left: 130px;
+    background: rgba(22, 14, 14, 0.5); /* Adjust the overlay color and opacity as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align text to the left */
+    padding: 20px;
+    color: white;
+    box-sizing: border-box;
+  }
+  
+  .text-container {
+    max-width: 80%; /* Adjust the max-width of the text container */
+    /* animation: fadeInLeft 1s forwards; Adjust the animation duration */
+  /* opacity: 0;
+  transform: translateX(-20px); Adjust the initial horizontal position */
+  position: relative;
+  animation: fadeInLeft 1s forwards;
+
+  }
+
+  @keyframes fadeInLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .scroll-dots {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 0px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    /* animation: alternate;
+    animation: dotAnimation 1s infinite; Adjust the animation speed */
+  }
+  
+  #dot1
+  {
+    width: 15px;
+    height: 15px;
+  }
+
+
+  @keyframes dotAnimation {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+
+  /* offer section */
+
+  .scroll-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+  }
+  
+  .box {
+    width: 500px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    /* margin: 0 10px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 0;
+    
+  }
+  
+  .box-content {
+    display: flex;
+  }
+  
+  .image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 20px;
+  }
+  
+  .image-container:nth-child(2) {
+    margin-right: 0; /* Remove right margin for the second box */
+  }
+  
+  .info-container {
+    flex-grow: 1;
+    color: #333;
+  }
+  
+  .discount {
+    /* background-color: #e74c3c; */
+    color: #010101;
+    margin: 7px 0;
+    font-size: 1.0em; /* Increase font size */
+    
+  }
+  
+  .highlighted-discount {
+    font-size: 2em; /* Bigger font size for highlighted discount */
+  }
+  
+
+
+
+  /* Our Services */
+
+
+  .services-section {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .filter-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
+  }
+  
+  .filter-option {
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    margin: 5px;
+  }
+
+  .filter-option:hover {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .filter-option.active {
+    background-color: #3498db;
+    color: white;
+  }
+  
+
+  /* Additional styling for the service boxes */
+
+  
+/* .service-box {
+  background-color: red;
+  transition: transform 0.3s, box-shadow 0.3s;
+} */
+
+/* .service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+} */
+
+  
+  
+  .service-box {
+    background-color: rgb(0, 0, 0);
+    position:relative;
+    width: 19%;
+    border: none;
+    border-radius: 15px;
+    padding: 0px;
+    margin: 50px;
+    text-align: center;
+    /* box-shadow: 0 0 10px rgba(120, 120, 120, 0.1); */
+    transition: transform 0.3s;
+    display: inline-block;
+    overflow: hidden; /* Ensure text container respects borders */
+  }
+  
+
+  
+  /* Add more styles as needed */
+
+
+  .card-img-container {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* Set a square aspect ratio (adjust as needed) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .img-square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Adjust the width of the square as needed */
+    height: 70%; /* Adjust the height of the square as needed */
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .img-square:hover .card-img-top {
+    transform: scale(1.1); /* Increase the image size on hover */
+  }
+
+  .card-body
+  {
+    color: black;
+    background-color:#3498db;
+  }
+
+
+  /* AboutUS Starts here */
+  /* About Us Section */
+.about-us-section {
+  background-color: #3498db; /* Blue background color */
+  color: #ffffff; /* White text color */
+  padding: 50px 0;
+  margin-bottom: 70px;
+}
+
+.about-us-content {
+  text-align: left;
+}
+
+.about-us-content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.about-us-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
+.read-more-btn{
+  background-color: #ffffff;
+  color: #3498db;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+
+/* Book Service Section */
+
+.book_section {
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.book_section .heading_container {
+  margin-bottom: 25px;
+}
+
+.book_section .form_container .form-control {
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-bottom: 25px;
+  padding-left: 25px;
+  border: 1px solid #999;
+  outline: none;
+  color: #000000;
+  border-radius: 5px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.book_section .form_container .form-control::-webkit-input-placeholder {
+  color: #222222;
+}
+
+.book_section .form_container .form-control:-ms-input-placeholder {
+  color: #222222;
+}
+
+.book_section .form_container .form-control::-ms-input-placeholder {
+  color: #222222;
+}
+
+.book_section .form_container .form-control::placeholder {
+  color: #222222;
+}
+
+.book_section .form_container .nice-select .current {
+  font-size: 16px;
+}
+
+.book_section .form_container button {
+  margin-top: 15px;
+  border: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px 55px;
+  background-color: #3498db;
+  color: #ffffff;
+  border-radius: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+}
+
+.book_section .form_container button:hover {
+  background-color: #2e88c5;
+}
+
+.book_section .map_container {
+  width: 100%;
+  height: 345px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.book_section .map_container #googleMap {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+
+/* client Section */
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.testimonials-section {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.testimonial-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  max-width: 1000px; /* Increase the max-width to allow for larger boxes */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-box {
+  width: 48%;
+  background-color: #fff;
+  padding: 40px; /* Increase the padding for larger boxes */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.client-review {
+  margin-bottom: 20px;
+}
+
+.client-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* ... existing styles ... */
+
+.testimonial-box.hidden {
+  display: none;
+}

@@ -1,0 +1,113 @@
+/* Our Services */
+
+
+.services-section {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .filter-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
+  }
+  
+  .filter-option {
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    margin: 5px;
+  }
+
+  .filter-option:hover {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .filter-option.active {
+    background-color: #3498db;
+    color: white;
+  }
+  
+
+  /* Additional styling for the service boxes */
+
+  
+/* .service-box {
+  background-color: red;
+  transition: transform 0.3s, box-shadow 0.3s;
+} */
+
+/* .service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+} */
+
+  
+  
+  .service-box {
+    background-color: rgb(0, 0, 0);
+    position:relative;
+    width: 19%;
+    border: none;
+    border-radius: 15px;
+    padding: 0px;
+    margin: 50px;
+    text-align: center;
+    /* box-shadow: 0 0 10px rgba(120, 120, 120, 0.1); */
+    transition: transform 0.3s;
+    display: inline-block;
+    overflow: hidden; /* Ensure text container respects borders */
+  }
+  
+
+  
+  /* Add more styles as needed */
+
+
+  .card-img-container {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* Set a square aspect ratio (adjust as needed) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .img-square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Adjust the width of the square as needed */
+    height: 70%; /* Adjust the height of the square as needed */
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .img-square:hover .card-img-top {
+    transform: scale(1.1); /* Increase the image size on hover */
+  }
+
+  .card-body
+  {
+    color: black;
+    background-color:#3498db;
+  }

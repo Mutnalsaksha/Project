@@ -1,0 +1,35 @@
+<section class="about-us-section">
+    <div class="container">
+      <div class="row">
+        <!-- Left side (image) -->
+        <div class="col-md-6">
+          <img src="assets/Aboutus.jpg" alt="Doctors Team Image" class="img-fluid">
+        </div>
+  
+        <!-- Right side (text) -->
+        <div class="col-md-6">
+          <div class="about-us-content">
+            <h2>About Us</h2>
+            <p>
+              Welcome to DocCare, where healthcare meets convenience and compassion. 
+              At DocCare, our mission is to redefine the way you experience healthcare by bringing it directly to your doorstep. We prioritize your well-being, offering a range of personalized services, from doctor consultations to nursing assistance and medical equipment delivery. Our team of skilled professionals is committed to delivering excellence, leveraging cutting-edge technology to ensure a streamlined and efficient healthcare experience. With a patient-centric approach, we empower you to take control of your health, making informed decisions with the support of our expert team. Trust DocCare to be your dedicated partner on your journey to a healthier and happier life.
+            </p>
+            <p *ngIf="showFullContent">
+                <!-- Additional information that is hidden by default -->
+                Our team of skilled professionals is committed to delivering excellence,
+                leveraging cutting-edge technology to ensure a streamlined and efficient
+                healthcare experience. With a patient-centric approach, we empower you 
+                to take control of your health, making informed decisions with the 
+                support of our expert team. Trust DocCare to be your dedicated partner
+                on your journey to a healthier and happier life.
+            </p>
+            <!-- Add your "Read More" button here -->
+            <!-- <button class="btn btn-primary">Read More</button> -->
+            <button class="read-more-btn" (click)="toggleContent()">
+                {{ showFullContent ? 'Show Less' : 'Read More' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
