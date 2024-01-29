@@ -1,4 +1,5 @@
 [[redirects]]
   from = "/*"
-  to = "src/index.html"
+  to = "/src/app/home/home.component.html"
   status = 200
+
