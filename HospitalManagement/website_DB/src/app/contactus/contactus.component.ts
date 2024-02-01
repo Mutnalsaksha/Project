@@ -17,39 +17,80 @@ export class ContactusComponent {
     message: '',
   };
 
+  formSubmitted = false;
+  errorMessage = '';
+  successMessage = '';
+  
+
   constructor(private contactUsService: ContactUsService) {}
 
   submitContactForm() {
+    // Reset messages on each form submission
+    this.errorMessage = '';
+    this.successMessage = '';
+
+    // Check form data for validation errors
+    if (!this.isValidFormData()) {
+      // Display a generic error message for invalid data
+      this.errorMessage = 'Invalid input. Please check your form data.';
+      this.formSubmitted = true;
+      
+      return;
+    }
+
+    // If form data is valid, proceed with form submission
     this.contactUsService.submitContactForm(this.formData).subscribe(
-      (data) => {
-        // Handle success, you can update UI or show a success message
-        console.log('Success:', data);
+      (response) => {
+        // Handle success
+        console.log('Success:', response);
+        this.successMessage = 'Form submitted successfully!';
+        this.formSubmitted = true;
+        this.resetForm();
+        
 
-        // Reset the form data after successful submission
-        this.formData = {
-          name: '',
-          phoneNumber: '',
-          email: '',
-          service: '',
-          message: '',
-        };
-
-        // Reset the formSubmitted status after successful submission
-        this.contactUsService.submitForm();
-
-        console.log('Response Data:', data);
+         // Automatically clear the success message after 5 seconds (5000 milliseconds)
+        setTimeout(() => {
+          this.successMessage = '';
+          this.formSubmitted = false;
+        }, 5000);
       },
       (error) => {
-        // Handle error, you can show an error message to the user
-        console.error('Error:', error);
+        // Handle other errors
+        console.error('Error submitting form:', error);
+        this.errorMessage = 'Failed to submit the form. Please try again later.';
+        this.formSubmitted = true;
       }
     );
   }
 
-  isFormSubmitted(): boolean {
-    // Use the service to check the form submission status
-    return this.contactUsService.getFormStatus();
+  resetForm() {
+    // Reset the form data after successful submission
+    this.formData = {
+      name: '',
+      phoneNumber: '',
+      email: '',
+      service: '',
+      message: '',
+    };
   }
+
+  isValidFormData(): boolean {
+    // Add your validation logic here
+    // For example, check if required fields are filled
+    return (
+      this.formData.name.trim() !== '' &&
+      this.formData.phoneNumber.trim() !== '' &&
+      this.formData.email.trim() !== '' &&
+      this.formData.service.trim() !== '' &&
+      this.formData.message.trim() !== ''
+    );
+  }
+    
+
+  // isFormSubmitted(): boolean {
+  //   // Use the service to check the form submission status
+  //   return this.contactUsService.getFormStatus();
+  // }
 
   
 }

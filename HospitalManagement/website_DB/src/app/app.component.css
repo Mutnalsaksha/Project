@@ -1,44 +1,70 @@
-.navbar
+nav.navbar
 {
-    background-color: rgb(76, 76, 76);
+    background-color: rgb(72, 72, 72) !important;
     /* background-image: url('/assets/bg.png');
     background-size: cover; */
 
 }
 
+.navbar{
+  color: #222831;
+}
+
 .navbar-brand
 {
-    color: rgb(56, 59, 201);
-    font-size: 30px;
-    font-style: oblique, sans-serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    /* font-style: oblique, sans-serif; */
     margin-left: 40px;
+    font-family: 'Dancing Script', cursive;
 }
 
 .navbar .navbar-nav .nav-link
 {
-    color:black;
+  
+    color:rgb(255, 255, 255);
     font-size: medium;
     margin-right: 15px;
+    text-align: center;
     
 }
 
 .navbar .navbar-nav .nav-link:hover
 {
-    color:rgb(24, 47, 255);
+    color:#ffbe33;
     font-size: medium;
+}
+.nav-item.active a {
+  color: #0800ff; /* Change the color to your desired active state color */
+  font-weight: bold; /* Add any other styling for the active state */
+}
+
+.btn{
+  background-color: #ffbe33;
+  border: none;
+  color: white;
+}
+
+.btn :hover{
+  background-color: #fdc141;
+  border: none;
 }
 
 
 /* footer section*/
 .footer_section {
-    background-color: #3498db;
+    background-color: #222831;
     color: #ffffff;
     padding: 75px 0 40px 0;
     text-align: center;
+    
+    
   }
   
   .footer_section h4 {
     font-size: 28px;
+    font-family: 'Dancing Script', cursive;
   }
   
   .footer_section h4,
@@ -46,6 +72,7 @@
     font-weight: 600;
     margin-bottom: 20px;
     /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Dancing Script', cursive;
   }
   
   .footer_section p {

@@ -1,13 +1,13 @@
 <section class="home">
     <div class="bg-text">
         <div class="background-container">
-            <img src="../../assets/bg.png" alt="">
+            <img src="../../assets/bg2.png" alt="">
             <div class="overlay">
               <div class="text-container">
                 <h1 id="scrollingText">Your Text Here 1</h1>
                 <p id="description">Some additional information or description 1.</p>
                 <!-- <button (click)="onButtonClick()">Your Button</button> -->
-                <a class="btn btn-primary" routerLink="/contactus">Book Service</a>
+                <a class="btn" routerLink="/contactus">Book Service</a>
 
                 <div class="contact-icons">
                   <div>
@@ -20,7 +20,7 @@
                   </div>
                   <div>
                     <i class="bi bi-envelope"></i>
-                    <span>example@example.com</span>
+                    <p>demo@gmail.com</p>
                   </div>
                 </div>
 
@@ -83,14 +83,6 @@
   <div class="title">Our Services</div>
   
   <!-- Filter options -->
-  <!-- <div class="filter-options">
-    <div class="filter-option" data-filter="all" (click)="filterServices('all')">All</div>
-    <div class="filter-option" data-filter="doctor" (click)="filterServices('doctor')">Doctor Visit</div>
-    <div class="filter-option" data-filter="nurse" (click)="filterServices('nurse')">Nurse</div>
-    <div class="filter-option" data-filter="delivery" (click)="filterServices('delivery')">Delivery</div>
-    <div class="filter-option" data-filter="others" (click)="filterServices('others')">Others</div>
-  </div> -->
-
   <div class="filter-options">
     <div class="filter-option" [class.active]="activeFilter === 'all'" (click)="filterServices('all')">All</div>
     <div class="filter-option" [class.active]="activeFilter === 'doctor'" (click)="filterServices('doctor')">Doctor Visit</div>
@@ -143,7 +135,7 @@
       <!-- Right side (text) -->
       <div class="col-md-6">
         <div class="about-us-content">
-          <h2>About Us</h2>
+          <h2>We Are DocCare</h2>
           <p>
             Welcome to DocCare, where healthcare meets convenience and compassion. At DocCare, our mission is to redefine the way you experience healthcare by bringing it directly to your doorstep. We prioritize your well-being, offering a range of personalized services, from doctor consultations to nursing assistance and medical equipment delivery. Our team of skilled professionals is committed to delivering excellence, leveraging cutting-edge technology to ensure a streamlined and efficient healthcare experience. With a patient-centric approach, we empower you to take control of your health, making informed decisions with the support of our expert team. Trust DocCare to be your dedicated partner on your journey to a healthier and happier life.
           </p>
@@ -167,68 +159,78 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form_container">
-          <form action="">
+          <form (submit)="submitContactForm()">
             <div>
-              <input type="text" class="form-control" placeholder="Your Name" />
+              <input type="text" id="name"  [(ngModel)]="formData.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Your Name" />
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="Phone Number" />
+              <input type="tel" id="number"  [(ngModel)]="formData.phoneNumber" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Phone Number" />
             </div>
             <div>
-              <input type="email" class="form-control" placeholder="Your Email" />
+              <input type="email" id="email"  [(ngModel)]="formData.email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Your Email" />
             </div>
             <div>
-              <select class="form-control nice-select wide">
+              <select class="form-control nice-select wide" id="service"  [(ngModel)]="formData.service" [ngModelOptions]="{standalone: true}">
                 <option value="" disabled selected>
                   Which Service are you looking for?
                 </option>
-                <option value="">
+                <option value="Critical Care">
                   Critical Care
                 </option>
-                <option value="">
+                <option value="Nursing Assistance">
                   Nursing Assistance
                 </option>
-                <option value="">
+                <option value="Lab Assistance">
                   Lab Assistance
                 </option>
-                <option value="">
+                <option value="Medicine Delivery">
                   Medicine Delivery
                 </option>
 
-                <option value="">
+                <option value="Wound Care">
                   Wound Care
                 </option>
-                <option value="">
+                <option value="Medical Equipments">
                   Medical Equipments
                 </option>
-                <option value="">
+                <option value="Nutritionist">
                   Nutritionist
                 </option>
-                <option value="">
+                <option value="Skilled Nursing">
                   Skilled Nursing
                 </option>
-                <option value="">
+                <option value="Doctor Visit">
                   Doctor Visit
                 </option>
-                <option value="">
+                <option value="Physiotherapist">
                   Physiotherapist
                 </option>
-                <option value="">
+                <option value="Counceling">
                   Counceling
                 </option>
               </select>
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="What can we help you with?" />
+              <input type="text" id="message"  [(ngModel)]="formData.message" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="What can we help you with?" />
             </div>
-            <!-- <div>
-              <input type="date" class="form-control">
-            </div> -->
-            <div class="btn_box">
-              <button>
-                Book Now
-              </button>
+            
+
+            <div *ngIf="errorMessage" class="error-message" style="color: red;">
+              <p>{{ errorMessage }}</p>
             </div>
+            
+            <div *ngIf="successMessage" class="success-message">
+              <p>{{ successMessage }}</p>
+            </div>
+
+            <form (submit)="submitContactForm()">
+              <div class="btn_box">
+                <button type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+            
           </form>
         </div>
       </div>
@@ -254,15 +256,24 @@
 
 <!-- testimonial.component.html -->
 
+<!-- testimonial.component.html -->
+
 <section class="testimonials-section">
   <h2>Testimonials</h2>
   
   <div class="testimonial-container">
-      <div *ngFor="let testimonial of testimonials" class="testimonial-box" [class.hidden]="!testimonial.visible">
-          <img [src]="testimonial.image" [alt]="testimonial.alt" class="client-image">
-          <p class="client-review">{{ testimonial.review }}</p>
+    <div *ngFor="let testimonial of testimonials" class="testimonial-box" [class.hidden]="!testimonial.visible">
+      <div class="testimonial-content">
+        <p class="client-review">{{ testimonial.review }}</p>
+        <h6>{{ testimonial.name }}</h6>
+        <p>{{ testimonial.place }}</p>
       </div>
+      <div class="client-image-container">
+        <img [src]="testimonial.image" [alt]="testimonial.alt" class="client-image">
+      </div>
+    </div>
   </div>
 </section>
+
 
 

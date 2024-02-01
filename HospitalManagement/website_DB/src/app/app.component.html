@@ -12,23 +12,23 @@
         <!-- <div class="navbar-nav mr-auto"></div> -->
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item" [class.active]="isRouteActive('')">
             <a class="nav-link" aria-current="page" routerLink="">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" [class.active]="isRouteActive('services')">
             <a class="nav-link" routerLink="services">Services</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" [class.active]="isRouteActive('aboutus')">
             <a class="nav-link" routerLink="aboutus">About Us</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" [class.active]="isRouteActive('contactus')">
             <a class="nav-link" routerLink="contactus">Contact Us</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" routerLink="">Book Now</a>
           </li> -->
           <li class="nav-item">
-            <a class="btn btn-primary" routerLink="/contactus">Book Service</a>
+            <a class="btn" routerLink="/contactus">Book Service</a>
         </li>
          
         </ul>
@@ -52,9 +52,9 @@
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
+                <a href="/contactus">
                   Location
-                </span>
+                </a>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
@@ -65,7 +65,7 @@
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo.com
+                  demo@gmail.com
                 </span>
               </a>
             </div>
@@ -106,7 +106,7 @@
             Everyday
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10.00 AM -10.00 PM
           </p>
         </div>
       </div>

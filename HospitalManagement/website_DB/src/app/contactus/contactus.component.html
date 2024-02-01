@@ -21,7 +21,7 @@
                 </div>
                 <div>
                   <i class="bi bi-envelope"></i>
-                  <span>example@example.com</span>
+                  <span>demo@gmail.com</span>
                 </div>
               </div>
             <!-- Add any additional text or elements here -->
@@ -96,18 +96,24 @@
               <div>
                 <input type="text" id="message"  [(ngModel)]="formData.message" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="What can we help you with?" />
               </div>
-              <!-- <div>
-                <input type="date" class="form-control">
-              </div> -->
-              <div class="btn_box">
-                <button type="submit">
-                  Submit
-                </button>
+              
+
+              <div *ngIf="errorMessage" class="error-message" style="color: red;">
+                <p>{{ errorMessage }}</p>
               </div>
-              <div *ngIf="isFormSubmitted()" class="success-message">
-                <p>Form submitted successfully!</p>
-                <!-- You can customize this message as needed -->
+              
+              <div *ngIf="successMessage" class="success-message">
+                <p>{{ successMessage }}</p>
               </div>
+
+              <form (submit)="submitContactForm()">
+                <div class="btn_box">
+                  <button type="submit">
+                    Submit
+                  </button>
+                </div>
+              </form>
+              
             </form>
           </div>
         </div>

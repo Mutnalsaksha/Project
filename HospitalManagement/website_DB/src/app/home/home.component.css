@@ -10,7 +10,7 @@
 .btn
 {
   color: #fff;
-  background-color: primary;
+  background-color: #ffbe33;
   border: none;
   cursor: pointer;
   margin-left: 0px;
@@ -18,10 +18,10 @@
   transition: background-color 0.3s;
 }
 
-/* .btn:hover
+.btn:hover
 {
-  background-color: red;
-} */
+  background-color:#eead20;
+}
 
 /* Add these styles to your component's CSS file */
 
@@ -49,6 +49,7 @@
     height: 600px; /* Adjust the height as needed */
     /* background: url('../../assets/bg.png') center/cover; */
     overflow: hidden; /* Ensure overflow is hidden to avoid scrolling */
+    margin-bottom: 40px;
   }
   
   .overlay {
@@ -58,7 +59,7 @@
     width: 40%; /* Adjust the width of the overlay */
     height: 100%;
     margin-left: 130px;
-    background: rgba(22, 14, 14, 0.5); /* Adjust the overlay color and opacity as needed */
+    background: rgb(72, 72, 72); /* Adjust the overlay color and opacity as needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,7 +76,11 @@
   transform: translateX(-20px); Adjust the initial horizontal position */
   position: relative;
   animation: fadeInLeft 1s forwards;
+  }
 
+  .text-container #scrollingText{
+    font-family: 'Dancing script',  cursive;
+    font-size: 55px;
   }
 
   @keyframes fadeInLeft {
@@ -97,7 +102,7 @@
   .dot {
     width: 10px;
     height: 10px;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 50%;
     margin: 0 5px;
     /* animation: alternate;
@@ -127,6 +132,7 @@
     display: flex;
     justify-content: space-around;
     padding: 50px 0;
+    color: #fbfcff;
   }
   
   .box {
@@ -136,6 +142,8 @@
     /* margin: 0 10px; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-right: 0;
+    color: #222831;
+    background-color: #222831;
     
   }
   
@@ -144,12 +152,26 @@
   }
   
   .image-container {
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
+    min-width: 175px;
+    margin-right: 15px;
+    position: relative;
+    -webkit-transition: all 0.1 0.5s;
+    transition: all 0.1 0.5s;
     border-radius: 50%;
     background-size: cover;
     background-position: center;
     margin-right: 20px;
+    border: 5px solid #e69c00;
+    overflow: hidden; 
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container while maintaining aspect ratio */
+    border-radius: 50%; /* Apply border-radius to the image as well */
   }
   
   .image-container:nth-child(2) {
@@ -158,12 +180,20 @@
   
   .info-container {
     flex-grow: 1;
-    color: #333;
+    color: #ffffff; 
+  }
+
+  .info-container h5{
+    font-family: 'Dancing script',  cursive;
+    font-size: 20px;
+  }
+  .info-container p {
+     font-size: 16px;
   }
   
   .discount {
     /* background-color: #e74c3c; */
-    color: #010101;
+    color: #f3f3f3;
     margin: 7px 0;
     font-size: 1.0em; /* Increase font size */
     
@@ -171,6 +201,8 @@
   
   .highlighted-discount {
     font-size: 2em; /* Bigger font size for highlighted discount */
+    font-family: 'Dancing script',  cursive;
+    font-weight: bold;
   }
   
 
@@ -182,11 +214,14 @@
   .services-section {
     text-align: center;
     padding: 50px 0;
+    font-style: normal;
+    font-weight: 400;
   }
   
   .title {
-    font-size: 2em;
+    font-size: 2.3em;
     margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
   }
 
   .filter-options {
@@ -205,12 +240,12 @@
   }
 
   .filter-option:hover {
-    background-color: #3498db;
+    background-color: #222831;
     color: white;
   }
 
   .filter-option.active {
-    background-color: #3498db;
+    background-color: #222831;
     color: white;
   }
   
@@ -251,7 +286,7 @@
 
 
   .card-img-container {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(244, 244, 244);
     position: relative;
     width: 100%;
     height: 0;
@@ -286,18 +321,18 @@
 
   .card-body
   {
-    color: black;
-    background-color:#3498db;
+    color: rgb(255, 255, 255);
+    background-color:#222831;
   }
 
 
   /* AboutUS Starts here */
   /* About Us Section */
 .about-us-section {
-  background-color: #3498db; /* Blue background color */
+  background-color: #222831; /* Blue background color */
   color: #ffffff; /* White text color */
   padding: 50px 0;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .about-us-content {
@@ -305,21 +340,22 @@
 }
 
 .about-us-content h2 {
-  font-size: 2em;
+  font-size: 2.4em;
   margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
 }
 
 .about-us-content p {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
 
 .read-more-btn{
-  background-color: #ffffff;
-  color: #3498db;
-  border: 2px solid #ffffff;
+  background-color: #ffbe33;
+  color: #ffffff;
+  border: 2px solid #ffbe33;
   cursor: pointer;
   padding: 10px;
   transition: background-color 0.3s;
@@ -332,10 +368,17 @@
 .book_section {
   position: relative;
   margin-bottom: 70px;
+  
 }
 
 .book_section .heading_container {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+.book_section .heading_container h2{
+  font-size: 2.2em;
 }
 
 .book_section .form_container .form-control {
@@ -379,7 +422,7 @@
   text-transform: uppercase;
   display: inline-block;
   padding: 10px 55px;
-  background-color: #3498db;
+  background-color: #e69c00;
   color: #ffffff;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
@@ -387,8 +430,18 @@
   border: none;
 }
 
+.success-message {
+  background-color: #d4edda; /* Bootstrap success color */
+  color: #155724; /* Bootstrap dark green color */
+  border: 1px solid #c3e6cb; /* Bootstrap light green color */
+  padding: 5px;
+  margin-top: 10px; /* Add some space between the message and the form */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  margin-bottom: 50px;
+}
+
 .book_section .form_container button:hover {
-  background-color: #2e88c5;
+  background-color: #d89400;
 }
 
 .book_section .map_container {
@@ -414,11 +467,18 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #f4f4f4;
+  
 }
 
 .testimonials-section {
   text-align: center;
   padding: 50px 0;
+  margin-bottom: 50px;
+}
+
+.testimonials-section h2{
+  margin-bottom: 40px;
+  font-family: 'Dancing Script', cursive;
 }
 
 .testimonial-container {
@@ -429,10 +489,27 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.testimonial-content h6{
+  font-weight: 600;
+  font-size: 18px;
+  margin: 15px 0 5px 0;
+}
+
+.testimonial-content p{
+  margin-bottom: 0;
+  font-size: 15px;
+  margin-bottom: 10px;
+  
+}
+
+.testimonial-content .client-review{
+  text-align: center;
+}
 
 .testimonial-box {
   width: 48%;
-  background-color: #fff;
+  background-color: #222831;
+  color: white;
   padding: 40px; /* Increase the padding for larger boxes */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -445,10 +522,38 @@ body {
 }
 
 .client-image {
-  width: 80px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 115px;
+  position: relative;
+  margin-top: 30px;
+  border-radius: 100%;
+  border: 5px solid #ffbe33;
+  position: relative;
+  /* width: 80px;
   height: 80px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: cover; */
+}
+
+.client-image::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ffbe33;
+  -webkit-transform: rotate(45deg) translateX(-50%);
+  transform: rotate(45deg) translateX(-50%);
 }
 
 

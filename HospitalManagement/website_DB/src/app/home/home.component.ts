@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2, OnInit } from '@angular/core';
 // your-component.component.ts
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router } from '@angular/router';
+import { ContactUsService } from '../newservices/contactus.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
@@ -36,10 +37,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   
 
   testimonials = [
-    { image: 'assets/100.png', alt: 'Client 1', review: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.', visible: true },
-    { image: 'assets/200.png', alt: 'Client 2', review: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', visible: true },
-    { image: 'assets/300.png', alt: 'Client 3', review: 'dbfhf ggwfhjfu egwfw hefbug wfbfhwbfyu gwfhbwu rg fuwhfuhywefuh ybafhyubwe Testimonial 3 content.', visible: false },
-    { image: 'assets/400.png', alt: 'Client 4', review: 'nfbvjhfiuewhfnfjh ebfeigwefbw ebfhbewhfbwehbf hbfiuwefenfew efbewhbfnwe fhjewbTestimonial 4 content.', visible: false }
+    { image: 'assets/100.png', alt: 'Client 1', review: 'Grateful for the convenience and compassion of the home care service. The personalized attention from the visiting doctor made my recovery at home a seamless and positive experience.', name: 'Prakash N', place:'Banglore' ,visible: true },
+    { image: 'assets/200.png', alt: 'Client 2', review: 'Booking a doctor for a home visit was a game-changer. The personalized care and professional service exceeded my expectations, making my recovery comfortable and stress-free.',  name: 'Indumati S', place:'Banglore' ,visible: true },
+    { image: 'assets/300.png', alt: 'Client 3', review: 'Exceptional service! The hassle-free delivery of medical equipment to my doorstep made managing my health needs incredibly convenient. Thank you for the prompt and reliable service.', name: 'Suresh P', place:'Banglore' , visible: false },
+    { image: 'assets/400.png', alt: 'Client 4', review: 'Thankful for the skilled nursing service at home, a reassuring and efficient support system that made my recovery seamless and comfortable. Thank you for the best service.',  name: 'Nilam S', place:'Banglore' ,visible: false }
   ];
 
   
@@ -134,9 +135,26 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     }
   }
 
+  formData: any = {
+    name: '',
+    phoneNumber: '',
+    email: '',
+    service: '',
+    message: '',
+  };
 
-  
-  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) {}
+  formSubmitted = false;
+  errorMessage = '';
+  successMessage = '';
+
+
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private router: Router,
+    private contactUsService: ContactUsService
+  ) {}
+
 
   ngOnInit() {
     this.setupScrolling();
@@ -231,7 +249,67 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   }
 
 
+  submitContactForm() {
+    // Reset messages on each form submission
+    this.errorMessage = '';
+    this.successMessage = '';
 
+    // Check form data for validation errors
+    if (!this.isValidFormData()) {
+      // Display a generic error message for invalid data
+      this.errorMessage = 'Invalid input. Please check your form data.';
+      this.formSubmitted = true;
+      
+      return;
+    }
+
+    // If form data is valid, proceed with form submission
+    this.contactUsService.submitContactForm(this.formData).subscribe(
+      (response) => {
+        // Handle success
+        console.log('Success:', response);
+        this.successMessage = 'Form submitted successfully!';
+        this.formSubmitted = true;
+        this.resetForm();
+        
+
+         // Automatically clear the success message after 5 seconds (5000 milliseconds)
+        setTimeout(() => {
+          this.successMessage = '';
+          this.formSubmitted = false;
+        }, 5000);
+      },
+      (error) => {
+        // Handle other errors
+        console.error('Error submitting form:', error);
+        this.errorMessage = 'Failed to submit the form. Please try again later.';
+        this.formSubmitted = true;
+      }
+    );
+  }
+
+  resetForm() {
+    // Reset the form data after successful submission
+    this.formData = {
+      name: '',
+      phoneNumber: '',
+      email: '',
+      service: '',
+      message: '',
+    };
+  }
+
+  isValidFormData(): boolean {
+    // Add your validation logic here
+    // For example, check if required fields are filled
+    return (
+      this.formData.name.trim() !== '' &&
+      this.formData.phoneNumber.trim() !== '' &&
+      this.formData.email.trim() !== '' &&
+      this.formData.service.trim() !== '' &&
+      this.formData.message.trim() !== ''
+    );
+  }
   
 
 }
