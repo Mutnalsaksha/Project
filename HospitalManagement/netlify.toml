@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/src/app/home/home.component.html"
-  status = 200
-
