@@ -323,6 +323,7 @@
   {
     color: rgb(255, 255, 255);
     background-color:#222831;
+    
   }
 
 
@@ -360,6 +361,10 @@
   padding: 10px;
   transition: background-color 0.3s;
   border-radius: 5px;
+}
+
+.read-more-btn :hover{
+background-color: #eead20;
 }
 
 

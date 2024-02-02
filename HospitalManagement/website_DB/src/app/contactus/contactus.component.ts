@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactusComponent {
   formData: any = {
+    date: new Date(),
     name: '',
     phoneNumber: '',
     email: '',
@@ -66,6 +67,7 @@ export class ContactusComponent {
   resetForm() {
     // Reset the form data after successful submission
     this.formData = {
+      date: new Date(),
       name: '',
       phoneNumber: '',
       email: '',
@@ -78,6 +80,7 @@ export class ContactusComponent {
     // Add your validation logic here
     // For example, check if required fields are filled
     return (
+      this.formData.date instanceof Date,
       this.formData.name.trim() !== '' &&
       this.formData.phoneNumber.trim() !== '' &&
       this.formData.email.trim() !== '' &&

@@ -68,7 +68,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     {
       dataCategory: 'doctor',
       title: 'Critical Care',
-      description: 'Experience peace of mind with our critical care at home. Our dedicated team brings expert medical support to your doorstep, ensuring comfort and specialized attention during challenging times.',
+      description: 'Experience peace with our critical care at home. Our dedicated team brings expert medical support to your doorstep, ensuring comfort and specialized attention during challenging times.',
       imageUrl: 'assets/Critical.png'
     },
     {
@@ -98,7 +98,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     {
       dataCategory: 'doctor',
       title: 'Wound Care',
-      description: 'Trust our specialized wound care services for expert attention to your healing needs. Our team ensures professional wound care in the comfort of your home, promoting a seamless recovery process.',
+      description: 'Trust specialized wound care for expert attention to your healing needs. Our team ensures professional wound care in the comfort of your home, promoting a seamless recovery process.',
       imageUrl: 'assets/WoundCare.png'
     },
     {

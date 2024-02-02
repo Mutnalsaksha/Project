@@ -10,7 +10,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/contactFormDB', { useNewUrlParser: t
 
 // Define MongoDB schema and model
 const contactUsSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  date: {type: Date, default: Date.now},
+  name: { type: String, required: true, minlength:3, maxlength:30},
   phoneNumber: {type: String, required: true,  match: /^[0-9]{10}$/ },
   email: { type: String, match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
   service:  {type: String, required: true},
@@ -38,6 +39,7 @@ app.post('/contactus/submit', async (req, res) => {
     const { name, phoneNumber, email, service, message } = req.body;
 
     const newContact = new ContactUs({
+      date: new Date(), 
       name: name,
       phoneNumber: phoneNumber,
       email: email,
